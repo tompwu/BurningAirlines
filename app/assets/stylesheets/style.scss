@@ -10,6 +10,10 @@
   border: 1px solid black;
 }
 
+.selected {
+  background-color: blue;
+}
+
 .flight-list-style {
 cursor: pointer;
 // add hover for individuals later maybe following below

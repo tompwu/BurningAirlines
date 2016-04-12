@@ -28,10 +28,11 @@ app.FlightView = Backbone.View.extend({
     },
     selectSeatOnClick: function(){
       $("#seats").children().one("click", function(){
+        $('.seat').removeClass('selected');
         // if ($(this).css("background-color", "blue")){
         //   alert("This seat has already been taken. Please choose an available seat.")
         // } else {
-        $(this).css("background-color", "blue");
+        $(this).addClass('selected');
         // }
       });
     }
