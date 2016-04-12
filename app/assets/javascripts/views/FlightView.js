@@ -1,6 +1,10 @@
 var app = app || {};
 
 app.FlightView = Backbone.View.extend({
+
+  events: {
+    'click #seats': 'selectSeatOnClick',
+  },
     el: '#main',
     render: function() {
       var flightViewTemplate = $('#flightViewTemplate').html();
@@ -21,6 +25,15 @@ app.FlightView = Backbone.View.extend({
             }
             $('#seats').append('<br>');
       }
-
+    },
+    selectSeatOnClick: function(){
+      $("#seats").children().one("click", function(){
+        // if ($(this).css("background-color", "blue")){
+        //   alert("This seat has already been taken. Please choose an available seat.")
+        // } else {
+        $(this).css("background-color", "blue");
+        // }
+      });
     }
-});
+
+  });
