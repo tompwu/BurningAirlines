@@ -36,13 +36,14 @@ f16 = Flight.create :origin => "Sydney", :destination => "London", :date_time =>
 f17 = Flight.create :origin => "London", :destination => "Sydney", :date_time => "2016-04-22 07:30:00"
 f18 = Flight.create :origin => 'Los Angeles', :destination => "Sydney", :date_time => "2016-04-22 23:00:00"
 
-f9 = Flight.create :origin => 'Los Angeles', :destination => "Sydney", :date_time => "2016-04-23 09:00:00"
-f10 = Flight.create :origin => "Sydney", :destination => "London", :date_time => "2016-04-23 20:15:00"
+f19 = Flight.create :origin => 'Los Angeles', :destination => "Sydney", :date_time => "2016-04-23 09:00:00"
+f20 = Flight.create :origin => "Sydney", :destination => "London", :date_time => "2016-04-23 20:15:00"
 
 
+p1.flights << f1 << f4 << f7 << f10 << f13 << f16 << f19
+p2.flights << f2 << f3 << f8 << f11 << f14 << f17 << f20
+p3.flights << f5 << f6 << f9 << f12 << f15 << f18
 
-p1.flights << f1 << f4
-p2.flights << f2 << f3
 
 Reservation.destroy_all
 r1 = Reservation.create :seat => '1A'
