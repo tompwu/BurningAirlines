@@ -8,6 +8,9 @@ $(document).ready(function() {
     app.planes = new app.Planes();
     app.planes.fetch();
 
+    app.reservations = new app.Reservations();
+    app.reservations.fetch();
+
     // window.setInterval( function() {
     //     app.secrets.fetch();
     // }, 4000);
