@@ -18,10 +18,11 @@ app.FlightView = Backbone.View.extend({
         var plane = app.planes.get(id);
         var columns = plane.attributes.columns;
         var rows = plane.attributes.rows;
+        var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'];
         for (var x = 1; x <= rows; x++) {
             for (var y = 1; y <= columns; y++) {
                   var $seat = $('<div class="seat"></div>');
-                  $seat.addClass('row' + x).addClass('column' + y).attr('id','seat' + x + y );
+                  $seat.addClass('row' + x).addClass('column' + letters[y-1]).attr('id','seat' + x + letters[y-1] );
                   $('#seats').append($seat);
             }
             $('#seats').append('<br>');

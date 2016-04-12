@@ -46,11 +46,11 @@ p3.flights << f5 << f6 << f9 << f12 << f15 << f18
 
 
 Reservation.destroy_all
-r1 = Reservation.create :seat => '1A'
-r2 = Reservation.create :seat => '1B'
-r3 = Reservation.create :seat => '1C'
-r4 = Reservation.create :seat => '2A'
-r5 = Reservation.create :seat => '2B'
+r1 = Reservation.create :seat => 'seat1A'
+r2 = Reservation.create :seat => 'seat1B'
+r3 = Reservation.create :seat => 'seat1C'
+r4 = Reservation.create :seat => 'seat2A'
+r5 = Reservation.create :seat => 'seat2B'
 
 User.destroy_all
 u1 = User.create :email => 'user1@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
