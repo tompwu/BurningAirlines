@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  resources :users, :only => [:new, :create, :index, :update]
+  resources :users, :only => [:new, :create, :index, :update, :home]
   get '/users/edit' => 'users#edit', :as => 'edit_user'
 
 
