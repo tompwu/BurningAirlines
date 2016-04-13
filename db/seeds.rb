@@ -60,6 +60,7 @@ u2 = User.create :email => 'user2@ga.co', :password => 'chicken', :password_conf
 u3 = User.create :email => 'user3@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
 u4 = User.create :email => 'user4@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
 u5 = User.create :email => 'user5@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
+u6 = User.create :email => 'admin@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
 
 f1.reservations << r1 << r2 << r3
 f2.reservations << r4 << r5

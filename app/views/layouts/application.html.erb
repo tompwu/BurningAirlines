@@ -13,6 +13,11 @@
         <% if @current_user.present? %>
             <%= link_to "Edit profile", edit_user_path(@current_user) %>
             <%= link_to "Logout #{ @current_user.email}", login_path, :method => :delete %>
+            <% if @current_user.admin.present? %>
+                <br>
+                <%= link_to 'Add Plane', new_plane_path %>
+                <%= link_to 'Add Flight', new_flight_path %>
+            <% end %>
         <% else %>
             <%= link_to "Signup", 'users/new' %>
             <%= link_to "Login", login_path %>
