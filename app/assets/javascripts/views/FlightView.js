@@ -42,7 +42,7 @@ app.FlightView = Backbone.View.extend({
     selectSeatOnClick: function(e){
       e.stopImmediatePropagation();
       // $("#seats").children().on("click", function(){
-        if ($(this).hasClass('reserved')) {
+        if ($(e.currentTarget).hasClass('reserved')) {
           return;
         }
         $('.seat').removeClass('selected');
