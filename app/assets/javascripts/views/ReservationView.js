@@ -13,13 +13,13 @@ app.ReservationView = Backbone.View.extend({
     this.$el.html(reservationViewHTML(this.model.toJSON() ));
 
 		var flightId = this.model.attributes.flight_id;
-		var origin = _.findWhere(app.flights.models, {id: flightId});
-		var originName = origin.attributes.origin.name;
-		var destination = _.findWhere(app.flights.models, {id: flightId});
-		var destinationName = destination.attributes.destination.name;
+		var flight = _.findWhere(app.flights.models, {id: flightId});
+		var originName = flight.attributes.origin.name;
+		var destinationName = flight.attributes.destination.name;
+		var dateTime = flight.attributes.date_time;
 		// Flight.find_by_id(flightId).origin.name
-
-		$("#flightNumber").html(flightId);
+		$("#flight-date").html(dateTime);
+		$("#flight-number").html(flightId);
 		$("#origin-result").html(originName);
 		$("#destination-result").html(destinationName);
 		// var destination = Flight.find_by_id(flightId).destination.name
