@@ -44,6 +44,7 @@ app.FlightView = Backbone.View.extend({
       e.stopImmediatePropagation();
       // $("#seats").children().on("click", function(){
         if ($(e.currentTarget).hasClass('reserved')) {
+          alert ("That seat is unavailable. Please choose another seat.")
           return;
         }
         $('.seat').removeClass('selected');
@@ -65,5 +66,6 @@ app.FlightView = Backbone.View.extend({
         // app.router.navigate('reservations/' + this.model.get("id"), true);
 
     }
+
 
   });
