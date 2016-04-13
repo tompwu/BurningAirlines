@@ -25,12 +25,14 @@ app.AppView = Backbone.View.extend({
     // SearchResultView.render();
 
     var search = _.filter( app.flights.models, function(flight) {
-        if (origin !== '' && destination !== '') {
-            return flight.attributes.origin.name === origin && flight.attributes.destination.name === destination;
+        if (origin !== '' && destination !== '' && date !== null ) {
+            return flight.attributes.origin.name === origin && flight.attributes.destination.name === destination && flight.attributes.date_time.includes(date);
         } else if (origin === '' && destination !== '') {
             return flight.attributes.destination.name === destination;
         } else if (origin !== '' && destination === '') {
             return flight.attributes.origin.name === origin;
+        } else if (date !== null && destination === '' && origin === '' ) {
+            return flight.attributes.date_time.includes(date);
         }
     });
     $('li').remove();
@@ -56,12 +58,7 @@ app.AppView = Backbone.View.extend({
 
 
 
-
-// app.flights.filter(function (flight) {
-//   return flight.get("origin").name === "Los Angeles" && flight.get("destination").name === "Sydney";
-// });
-
-
+// app.flights.models[0].attributes.date_time
 
 // var date = "2016-05-13T08:30:00.000Z";
 // var userDate = "2016-05-13"
