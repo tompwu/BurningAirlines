@@ -5,40 +5,42 @@ p1 = Plane.create :name => "plane1", :rows => 6, :columns => 8
 p2 = Plane.create :name => "plane2", :rows => 4, :columns => 6
 p3 = Plane.create :name => "plane3", :rows => 4, :columns => 10
 
+Airport.destroy_all
+a1 = Airport.create :name => 'Sydney'
+a2 = Airport.create :name => 'London'
+a3 = Airport.create :name => 'Los Angeles'
+
+
 Flight.destroy_all
-f1 = Flight.create :origin => "Sydney", :destination => 'London', :date_time => "2016-04-13 08:30:00"
-f2 = Flight.create :origin => "Sydney", :destination => 'Los Angeles', :date_time => "2016-04-13 13:20:00"
+f1 = Flight.create :date_time => "2016-05-13 08:30:00", :destination => a1, :origin => a3
+f2 = Flight.create :date_time => "2016-05-13 16:30:00", :destination => a2, :origin => a1
 
-f3 = Flight.create :origin => "Los Angeles", :destination => 'Sydney', :date_time => "2016-04-14 12:30:00"
-f4 = Flight.create :origin => "London", :destination => 'Sydney', :date_time => "2016-04-14 18:00:00"
+f3 = Flight.create :date_time => "2016-05-13 07:00:00", :destination => a1, :origin => a2
+f4 = Flight.create :date_time => "2016-05-13 22:00:00", :destination => a3, :origin => a1
 
-f5 = Flight.create :origin => "Los Angeles", :destination => "Sydney", :date_time => "2016-04-15 07:09:00"
-f6 = Flight.create :origin => "Sydney", :destination => 'London', :date_time => "2016-04-15 15:09:00"
+f5 = Flight.create :date_time => "2016-05-13 06:30:00", :destination => a1, :origin => a3
+f6 = Flight.create :date_time => "2016-05-13 014:00:00", :destination => a1, :origin => a2
 
-f7 = Flight.create :origin => "Sydney", :destination => "Los Angeles", :date_time => "2016-04-16 02:00:00"
-f8 = Flight.create :origin => 'London', :destination => "Sydney", :date_time => "2016-04-16 07:09:00"
+f7 = Flight.create :date_time => "2016-05-13 12:00:00", :destination => a3, :origin => a1
+f8 = Flight.create :date_time => "2016-05-13 15:30:00", :destination => a2, :origin => a1
 
-f9 = Flight.create :origin => "London", :destination => "Sydney", :date_time => "2016-04-17 07:30:00"
-f10 = Flight.create :origin => 'Los Angeles', :destination => "Sydney", :date_time => "2016-04-17 23:00:00"
+f9 = Flight.create :date_time => "2016-05-13 02:30:00", :destination => a1, :origin => a3
+f10 = Flight.create :date_time => "2016-05-13 12:30:00", :destination => a2, :origin => a1
 
-f9 = Flight.create :origin => 'Los Angeles', :destination => "Sydney", :date_time => "2016-04-18 07:30:00"
-f10 = Flight.create :origin => "Sydney", :destination => "London", :date_time => "2016-04-18 23:00:00"
+f11 = Flight.create :date_time => "2016-05-13 03:30:00", :destination => a1, :origin => a2
+f12 = Flight.create :date_time => "2016-05-13 15:00:00", :destination => a2, :origin => a1
 
-f11 = Flight.create :origin => "Sydney", :destination => "London", :date_time => "2016-04-19 07:30:00"
-f12 = Flight.create :origin => 'Los Angeles"', :destination => "Sydney", :date_time => "2016-04-19 23:00:00"
+f13 = Flight.create :date_time => "2016-05-13 05:30:00", :destination => a1, :origin => a2
+f14 = Flight.create :date_time => "2016-05-13 13:30:00", :destination => a3, :origin => a1
 
-f13 = Flight.create :origin => "Sydney", :destination => "Los Angeles", :date_time => "2016-04-20 06:30:00"
-f14 = Flight.create :origin => 'London', :destination => "Sydney", :date_time => "2016-04-20 14:15:00"
+f15 = Flight.create :date_time => "2016-05-13 08:30:00", :destination => a2, :origin => a1
+f16 = Flight.create :date_time => "2016-05-13 11:00:00", :destination => a1, :origin => a3
 
-f15 = Flight.create :origin => 'Los Angeles', :destination => "Sydney", :date_time => "2016-04-21 012:00:00"
-f16 = Flight.create :origin => "Sydney", :destination => "London", :date_time => "2016-04-21 18:40:00"
+f17 = Flight.create :date_time => "2016-05-13 07:00:00", :destination => a3, :origin => a1
+f18 = Flight.create :date_time => "2016-05-13 15:00:00", :destination => a2, :origin => a1
 
-f17 = Flight.create :origin => "London", :destination => "Sydney", :date_time => "2016-04-22 07:30:00"
-f18 = Flight.create :origin => 'Los Angeles', :destination => "Sydney", :date_time => "2016-04-22 23:00:00"
-
-f19 = Flight.create :origin => 'Los Angeles', :destination => "Sydney", :date_time => "2016-04-23 09:00:00"
-f20 = Flight.create :origin => "Sydney", :destination => "London", :date_time => "2016-04-23 20:15:00"
-
+f19 = Flight.create :date_time => "2016-05-13 12:30:00", :destination => a1, :origin => a2
+f20 = Flight.create :date_time => "2016-05-13 22:30:00", :destination => a3, :origin => a1
 
 p1.flights << f1 << f4 << f7 << f10 << f13 << f16 << f19
 p2.flights << f2 << f3 << f8 << f11 << f14 << f17 << f20

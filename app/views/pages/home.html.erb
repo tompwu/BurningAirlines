@@ -1,8 +1,36 @@
 <div id="main"></div>
 
+
 <script type="text/template" id='appViewTemplate'>
       <h1>Burning Airlines</h1>
+
+      <!-- we need a search page where user can select origin, destination and date -->
+      <form action="">
+      <label for="originfield">Origin:</label>
+      <select id="originfield">
+       <option value="" selected disabled>select</option>
+        <option>London</option>
+        <option>Los Angeles</option>
+        <option>Sydney</option>
+      </select>
+
+      <label for="destinationfield">Destination:</label>
+      <select id="destinationfield">
+       <option value="" selected disabled>select</option>
+        <option>London</option>
+        <option>Los Angeles</option>
+        <option>Sydney</option>
+      </select>
+
+      <label for="datefield">Date:</label>
+      <input type="date" id="datefield">
+
+
+      </form>
+
+
       <ul id="flight-list" class="flight-list-style"></ul>
+
 </script>
 
 <script type="text/template" id='flightViewTemplate'>
@@ -17,6 +45,5 @@
 
 <script type="text/template" id='reservationViewTemplate'>
       <h1>Burning Airlines 3</h1>
-
 
 </script>
