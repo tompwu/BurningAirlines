@@ -22,5 +22,19 @@ app.AppView = Backbone.View.extend({
     var SearchResultView = new app.SearchResultView();
     SearchResultView.render();
 
+    app.flights.filter(function (flight) {
+  return flight.get("origin").name === origin && flight.get("destination").name === destination;
+});
+
+// app.flights.filter(function (flight) {
+//   return flight.get("origin").name === "Los Angeles" && flight.get("destination").name === "Sydney";
+// });
+
+
+
+// var date = "2016-05-13T08:30:00.000Z";
+// var userDate = "2016-05-13"
+// date.includes( userDate );
+// ===>true
   }
 });

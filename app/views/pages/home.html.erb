@@ -35,6 +35,7 @@
 
       </form>
 
+
       <ul id="flight-list" class="flight-list-style"></ul>
 
 </script>
@@ -55,11 +56,13 @@
 <script type="text/template" id='reservationViewTemplate'>
       <h1>Burning Airlines 3</h1>
       <p>Seat: <%%= seat %></p>
+      <p>Date: <%%= date_time %></p>
       <p>Flight Number: <span id="flightNumber"></span></p>
       <p>Origin: <span id="origin-result"></span></p>
       <p>Destination: <span id="destination-result"></span></p>
       <p>Passenger's Email: <%%= app.current_user.email %></p>
       <button id="confirm-reservation">Confirm Booking</button>
+
 
 </script>
 </div>
