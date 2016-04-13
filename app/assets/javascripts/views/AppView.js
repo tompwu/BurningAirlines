@@ -25,7 +25,13 @@ app.AppView = Backbone.View.extend({
     // SearchResultView.render();
 
     var search = _.filter( app.flights.models, function(flight) {
-        return flight.attributes.origin.name === origin && flight.attributes.destination.name === destination;
+        if (origin !== '' && destination !== '') {
+            return flight.attributes.origin.name === origin && flight.attributes.destination.name === destination;
+        } else if (origin === '' && destination !== '') {
+            return flight.attributes.destination.name === destination;
+        } else if (origin !== '' && destination === '') {
+            return flight.attributes.origin.name === origin;
+        }
     });
     $('li').remove();
     for (var i = 0; i < search.length; i++) {
