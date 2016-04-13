@@ -2,7 +2,8 @@ var app = app || {};
 
 app.ReservationView = Backbone.View.extend({
 	events: {
-		'click #confirm-reservation': 'confirmBooking'
+		'click #confirm-reservation': 'confirmBooking',
+		'click #cancel-reservation': 'cancelBooking'
 	},
 
 	el: '#main',
@@ -29,10 +30,16 @@ app.ReservationView = Backbone.View.extend({
 	},
 
 	confirmBooking: function(e){
-		e.stopPropagation();
-		debugger
-		window.reservation.id.attributes.confirmed = true;
+		e.stopImmediatePropagation();
+		// debugger
+		$(window.reservation).attr("confirmed", true);
 
+	},
+	cancelBooking: function(event){
+		event.stopPropagation();
+
+		$(window.reservation).attr("confirmed", false);
+		$(window.reservation).remove();
 	}
 
   });
