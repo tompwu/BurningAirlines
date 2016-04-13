@@ -44,15 +44,11 @@ app.AppView = Backbone.View.extend({
       } else if (date !== null && destination === '' && origin === '') {
         return flight.attributes.date_time.includes(date);
 
-      } else if (date !== null && destination !== '' && origin === '') {
-        console.log("faile");
-        return flight.attributes.origin.name === origin &&
-        flight.attributes.date_time.includes(date);
-
       } else if (date !== null && destination === '' && origin !== '') {
-        console.log("faile");
-        return flight.attributes.destination.name === destination &&
-        flight.attributes.date_time.includes(date);
+        return flight.attributes.origin.name === origin && flight.attributes.date_time.includes(date);
+
+      } else if (date !== null && destination !== '' && origin === '') {
+        return flight.attributes.destination.name === destination && flight.attributes.date_time.includes(date);
       }
     });
 
