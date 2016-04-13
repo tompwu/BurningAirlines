@@ -3,7 +3,7 @@ var app = app || {};
 app.AppView = Backbone.View.extend({
     el: '#main',
     events: {
-      'click button' : 'createSearch'
+      'click #searchSubmit' : 'createSearch'
     },
     render: function() {
       var appViewTemplate = $('#appViewTemplate').html();
