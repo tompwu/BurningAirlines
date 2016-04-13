@@ -3,7 +3,7 @@ var app = app || {};
 app.FlightListView = Backbone.View.extend({
     tagName: 'li',
     events: {
-      'click': 'showFlight'
+      'click': 'showFlight',
     },
     render: function() {
       var origin = this.model.attributes.origin.name;
