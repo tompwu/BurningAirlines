@@ -3,7 +3,8 @@ var app = app || {};
 app.FlightView = Backbone.View.extend({
 
   events: {
-    'click #seats': 'selectSeatOnClick',
+    'click .seat': 'selectSeatOnClick',
+    'click #confirm-seat-btn': 'confirmSeat'
   },
     el: '#main',
     render: function() {
@@ -18,10 +19,11 @@ app.FlightView = Backbone.View.extend({
         var plane = app.planes.get(id);
         var columns = plane.attributes.columns;
         var rows = plane.attributes.rows;
+        var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'];
         for (var x = 1; x <= rows; x++) {
             for (var y = 1; y <= columns; y++) {
                   var $seat = $('<div class="seat"></div>');
-                  $seat.addClass('row' + x).addClass('column' + y).attr('id','seat' + x + y );
+                  $seat.addClass('row' + x).addClass('column' + letters[y-1]).attr('id','seat' + x + letters[y-1] );
                   $('#seats').append($seat);
             }
             $('#seats').append('<br>');
@@ -33,17 +35,37 @@ app.FlightView = Backbone.View.extend({
               currentReservations.push(app.reservations.models[i].toJSON());
         }
         var reservationsThisFlight = _.where( currentReservations, {flight_id: flight_id});
-        console.log(reservationsThisFlight);
+        for (var j = 0; j < reservationsThisFlight.length; j++) {
+              var seat = reservationsThisFlight[j].seat;
+              $('#' + seat).addClass('reserved');
+        }
     },
-    selectSeatOnClick: function(){
-      $("#seats").children().one("click", function(){
+    selectSeatOnClick: function(e){
+      e.stopImmediatePropagation();
+      // $("#seats").children().on("click", function(){
+        if ($(e.currentTarget).hasClass('reserved')) {
+          alert ("That seat is unavailable. Please choose another seat.");
+          return;
+        }
         $('.seat').removeClass('selected');
-        // if ($(this).css("background-color", "blue")){
-        //   alert("This seat has already been taken. Please choose an available seat.")
-        // } else {
-        $(this).addClass('selected');
-        // }
-      });
+      //   // if ($(this).css("background-color", "blue")){
+      //   //   alert("This seat has already been taken. Please choose an available seat.")
+      //   // } else {
+        $(e.currentTarget).addClass('selected');
+      //   // }
+      // });
+    },
+    confirmSeat: function() {
+        var seat = document.getElementsByClassName('selected')[0].id;
+        var flight_id = this.model.attributes.id;
+
+        // var userID = @current_user.id;
+
+        var reservation = new app.Reservation({user_id: app.current_user.id, seat: seat, flight_id: flight_id });
+        reservation.save();
+        // app.router.navigate('reservations/' + this.model.get("id"), true);
+
     }
+
 
   });
