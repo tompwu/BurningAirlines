@@ -8,12 +8,17 @@ app.FlightView = Backbone.View.extend({
   },
     el: '#main',
     render: function() {
+      console.log("asas");
       var flightViewTemplate = $('#flightViewTemplate').html();
       var flightViewHTML = _.template( flightViewTemplate );
       this.$el.html( flightViewHTML(this.model.toJSON() ));
       plane_id = this.model.toJSON().plane_id;
       this.createSeats(plane_id);
       this.getReservations(this.model.attributes.id);
+      var dateChange = this.model.get('date_time');
+      var date = (dateChange.substr(0,10) + " " + dateChange.substr(11,5));
+      $("#flight-date").html(date);
+
     },
     createSeats: function(id) {
         var plane = app.planes.get(id);

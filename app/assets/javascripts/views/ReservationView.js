@@ -17,6 +17,7 @@ app.ReservationView = Backbone.View.extend({
 		var originName = flight.attributes.origin.name;
 		var destinationName = flight.attributes.destination.name;
 		var dateTime = flight.attributes.date_time;
+    dateTime = (dateTime.substr(0,10) + " " + dateTime.substr(11,5));
 
 		// Flight.find_by_id(flightId).origin.name
 		$("#flight-date").html(dateTime);
