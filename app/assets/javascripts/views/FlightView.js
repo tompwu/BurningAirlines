@@ -4,6 +4,7 @@ app.FlightView = Backbone.View.extend({
 
   events: {
     'click .seat': 'selectSeatOnClick',
+    'click #confirm-seat-btn': 'confirmSeat'
   },
     el: '#main',
     render: function() {
@@ -53,6 +54,14 @@ app.FlightView = Backbone.View.extend({
         $(e.currentTarget).addClass('selected');
       //   // }
       // });
+    },
+    confirmSeat: function() {
+        var seat = document.getElementsByClassName('selected')[0].id;
+
+        // var userID = @current_user.id;
+        // var reservation = new app.Reservation({user_id: @current_user[id], });
+        // app.router.navigate('reservations/' + this.model.get("id"), true);
+
     }
 
 

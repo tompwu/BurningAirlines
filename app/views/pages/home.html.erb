@@ -1,5 +1,10 @@
 <div id="main"></div>
 
+<script>
+      var app = app || {};
+      app.current_user = <%= @current_user.to_json.html_safe %>;
+</script>
+
 <script type="text/template" id='appViewTemplate'>
       <h1>Burning Airlines</h1>
       <ul id="flight-list" class="flight-list-style"></ul>
@@ -12,6 +17,7 @@
       <p>Date: <%%= date_time %></p>
 
       <div id="seats"></div>
+      <button id='confirm-seat-btn'>Confirm</button>
 
 </script>
 
