@@ -13,9 +13,14 @@ app.AppView = Backbone.View.extend({
           flightListView.render();
       });
   },
-  createSearch: function() {
-    console.log("iajwefij");
+  createSearch: function(event) {
+    event.preventDefault();
+    origin = originfield.value;
+    destination = destinationfield.value;
+    date = datefield.value;
+    console.log(origin + " " + destination + " " + date);
     var SearchResultView = new app.SearchResultView();
     SearchResultView.render();
+
   }
 });
