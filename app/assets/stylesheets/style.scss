@@ -1,53 +1,74 @@
-#div {
-  margin: 0 auto;
-  width: 960px;
-}
-
-body {
-  text-align: center;
-}
-
-li {
-  list-style: none;
-}
-
-#seats {
-  width: 200px;
-  height: 400px;
+#div
+{
+    width: 960px;
     margin: 0 auto;
 }
 
-.seat {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  border: 1px solid black;
-  cursor: pointer;
+body
+{
+    text-align: center;
+
+    color: white;
+    background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
 }
 
-.selected {
-  background-color: blue;
+li
+{
+    list-style: none;
 }
 
-.reserved {
-  background-color: red;
+#seats
+{
+    width: 200px;
+    height: 400px;
+    margin: 0 auto;
 }
 
-.reserved:hover {
-  cursor: not-allowed;
+.seat
+{
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+
+    border: 1px solid white;
 }
 
-.flight-list-style {
-cursor: pointer;
-// add hover for individuals later maybe following below
-// color: #000;
-//
-// &:visited {
-//   color: #666;
-// }
-//
-// &:hover {
-//   color: #fff;
-//   background-color: #000;
-// }
+.selected
+{
+    background-color: blue;
+}
+
+.reserved
+{
+    background-color: red;
+}
+
+.reserved:hover
+{
+    cursor: not-allowed;
+}
+
+.flight-list-style
+{
+    cursor: pointer;
+    // add hover for individuals later maybe following below
+    // color: #000;
+    //
+    // &:visited {
+    //   color: #666;
+    // }
+    //
+    // &:hover {
+    //   color: #fff;
+    //   background-color: #000;
+    // }
+}
+body
+{
+    text-align: center;
+
+    background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
 }
