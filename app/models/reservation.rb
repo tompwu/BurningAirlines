@@ -8,6 +8,7 @@
 #  seat       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  confirmed  :boolean          default("f")
 #
 
 class Reservation < ActiveRecord::Base
