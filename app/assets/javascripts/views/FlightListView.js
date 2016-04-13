@@ -3,7 +3,7 @@ var app = app || {};
 app.FlightListView = Backbone.View.extend({
     tagName: 'li',
     events: {
-      'click': 'showFlight',
+      'click': 'showFlight'
     },
     render: function() {
       var origin = this.model.attributes.origin.name;
@@ -13,6 +13,7 @@ app.FlightListView = Backbone.View.extend({
       this.$el.appendTo('#flight-list');
     },
     showFlight: function() {
+        console.log(this.model.get("id"));
       app.router.navigate('flights/' + this.model.get("id"), true);
     }
 });
