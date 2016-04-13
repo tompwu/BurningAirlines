@@ -9,24 +9,21 @@ app.ReservationsView = Backbone.View.extend({
   el: '#main',
 
   render: function() {
+    var reservationViewTemplate = $('#reservationViewTemplate').html();
+		var flightViewHTML = _.template( reservationViewTemplate );
+    this.$el.html(reservationViewTemplate);
+	// },
 
-    var reservationsViewTemplate = $('#reservationViewTemplate').html();
-    this.$el.html(reservationsViewTemplate);
-
-    app.usersListView = new app.UsersListView({collection: view.collection});
-    app.usersListView.render();
-
-    $('.seat').css('width', (app.planes.get(this.collection.plane_id).attributes.columns*10));
-
-    view.collection.each(function(reservation) {
-      // Give reservation plane_id too
+    // View.collection.each(function(reservation) {
+      // Give reservation plane_id
       reservation = reservation.toJSON();
       reservation.plane_id = view.collection.plane_id;
       // console.log(reservation.user_id);
 
-      app.reservationView = new app.ReservationView({model: reservation});
+      app.reservationView = new app.ReservationView({model: Reservation});
       app.reservationView.render( view.$el );
-    });
-  }
-
-});
+    },
+		viewReservation: function(){
+			console.log(app.reservationView);
+		}
+  });
