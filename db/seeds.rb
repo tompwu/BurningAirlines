@@ -53,12 +53,12 @@ r4 = Reservation.create seat: 'seat2A'
 r5 = Reservation.create seat: 'seat2B'
 
 User.destroy_all
-u1 = User.create :email => 'user1@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
-u2 = User.create :email => 'user2@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
-u3 = User.create :email => 'user3@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
-u4 = User.create :email => 'user4@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
-u5 = User.create :email => 'user5@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
-u6 = User.create :email => 'admin@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true
+u1 = User.create :email => 'user1@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :name => 'Osama'
+u2 = User.create :email => 'user2@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :name => 'Hitler'
+u3 = User.create :email => 'user3@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :name => 'Joel'
+u4 = User.create :email => 'user4@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :name => 'Badger'
+u5 = User.create :email => 'user5@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :name => 'Harson'
+u6 = User.create :email => 'admin@ga.co', :password => 'chicken', :password_confirmation => 'chicken', :admin => true, :name => 'Admin'
 
 
 f1.reservations << r1 << r2 << r3
