@@ -9,7 +9,6 @@ app.SearchResultView = Backbone.View.extend({
 //     },
 //
 render: function() {
-  console.log("help me");
 },
 //     /////////////////////////  Function to populate list ////////////////////////////
 //     render: function() {
