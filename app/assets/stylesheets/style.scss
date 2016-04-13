@@ -1,10 +1,13 @@
 #div {
   margin: 0 auto;
   width: 960px;
+
 }
 
 body {
   text-align: center;
+  background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
+color: white;
 }
 
 li {
@@ -21,7 +24,7 @@ li {
   width: 20px;
   height: 20px;
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid white;
   cursor: pointer;
 }
 
@@ -50,4 +53,8 @@ cursor: pointer;
 //   color: #fff;
 //   background-color: #000;
 // }
+}
+body {
+  text-align: center;
+  background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
 }
