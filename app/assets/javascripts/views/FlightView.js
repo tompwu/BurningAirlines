@@ -3,7 +3,7 @@ var app = app || {};
 app.FlightView = Backbone.View.extend({
 
   events: {
-    'click #seats': 'selectSeatOnClick',
+    'click .seat': 'selectSeatOnClick',
   },
     el: '#main',
     render: function() {
@@ -35,15 +35,17 @@ app.FlightView = Backbone.View.extend({
         var reservationsThisFlight = _.where( currentReservations, {flight_id: flight_id});
         console.log(reservationsThisFlight);
     },
-    selectSeatOnClick: function(){
-      $("#seats").children().one("click", function(){
+    selectSeatOnClick: function(e){
+      e.stopImmediatePropagation();
+      console.log("SEAT CLICKED")
+      // $("#seats").children().one("click", function(){
         $('.seat').removeClass('selected');
-        // if ($(this).css("background-color", "blue")){
-        //   alert("This seat has already been taken. Please choose an available seat.")
-        // } else {
-        $(this).addClass('selected');
-        // }
-      });
+      //   // if ($(this).css("background-color", "blue")){
+      //   //   alert("This seat has already been taken. Please choose an available seat.")
+      //   // } else {
+        $(e.currentTarget).addClass('selected');
+      //   // }
+      // });
     }
 
   });
