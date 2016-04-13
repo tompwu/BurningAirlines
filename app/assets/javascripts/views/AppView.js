@@ -6,6 +6,7 @@ app.AppView = Backbone.View.extend({
       'click #searchSubmit' : 'createSearch'
     },
     render: function() {
+      debugger;
       var appViewTemplate = $('#appViewTemplate').html();
       this.$el.html( appViewTemplate );
       app.flights.each( function(flight) {

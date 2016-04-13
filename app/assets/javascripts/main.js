@@ -8,6 +8,9 @@ $(document).ready(function() {
     app.planes = new app.Planes();
     app.planes.fetch();
 
+    app.airports = new app.Airports();
+    app.airports.fetch();
+
     app.reservations = new app.Reservations();
     app.reservations.fetch();
 
