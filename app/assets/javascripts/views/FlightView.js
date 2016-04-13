@@ -34,10 +34,16 @@ app.FlightView = Backbone.View.extend({
               currentReservations.push(app.reservations.models[i].toJSON());
         }
         var reservationsThisFlight = _.where( currentReservations, {flight_id: flight_id});
-        console.log(reservationsThisFlight);
+        for (var j = 0; j < reservationsThisFlight.length; j++) {
+              var seat = reservationsThisFlight[j].seat;
+              $('#' + seat).addClass('reserved');
+        }
     },
     selectSeatOnClick: function(){
-      $("#seats").children().one("click", function(){
+      $("#seats").children().on("click", function(){
+        if ($(this).hasClass('reserved')) {
+          return;
+        }
         $('.seat').removeClass('selected');
         // if ($(this).css("background-color", "blue")){
         //   alert("This seat has already been taken. Please choose an available seat.")
