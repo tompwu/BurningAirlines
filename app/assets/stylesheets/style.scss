@@ -7,6 +7,10 @@ body {
   text-align: center;
 }
 
+li {
+  list-style: none;
+}
+
 #seats {
   width: 200px;
   height: 400px;
@@ -18,6 +22,7 @@ body {
   height: 20px;
   display: inline-block;
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .selected {
@@ -26,6 +31,10 @@ body {
 
 .reserved {
   background-color: red;
+}
+
+.reserved:hover {
+  cursor: not-allowed;
 }
 
 .flight-list-style {

@@ -56,15 +56,24 @@ app.FlightView = Backbone.View.extend({
       // });
     },
     confirmSeat: function() {
-        var seat = document.getElementsByClassName('selected')[0].id;
+      if ($(".selected").length > 0) {
+        var seat = $(".selected").eq(0).attr("id");
         var flight_id = this.model.attributes.id;
 
         // var userID = @current_user.id;
+        // if (seat.id === undefined){
+        if ($(".seat").hasClass("selected") === false){
 
-        var reservation = new app.Reservation({user_id: app.current_user.id, seat: seat, flight_id: flight_id });
-        reservation.save();
-        // app.router.navigate('reservations/' + this.model.get("id"), true);
-
+          return;
+        } else {
+          var reservation = new app.Reservation({user_id: app.current_user.id, seat: seat, flight_id: flight_id });
+          reservation.save().done(function() {
+            app.router.navigate('reservations/' + reservation.id, true);
+          });
+        }
+      } else {
+        alert("Please select a seat.");
+      }
     }
 
 
