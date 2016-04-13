@@ -29,16 +29,30 @@ app.AppView = Backbone.View.extend({
 // Below tests the search fields upon submit for similar db
 // results and then renders the appropriate results accordingly.
     var search = _.filter(app.flights.models, function(flight) {
-      if (origin !== '' && destination !== '' && date !== null) {
+
+      if (date !== null && origin !== '' && destination !== '') {
         return flight.attributes.origin.name === origin &&
         flight.attributes.destination.name === destination &&
         flight.attributes.date_time.includes(date);
-      } else if (origin === '' && destination !== '') {
+
+      } else if (date === null && origin === '' && destination !== '') {
         return flight.attributes.destination.name === destination;
-      } else if (origin !== '' && destination === '') {
+
+      } else if (date === null && origin !== '' && destination === '') {
         return flight.attributes.origin.name === origin;
+
       } else if (date !== null && destination === '' && origin === '') {
         return flight.attributes.date_time.includes(date);
+
+      } else if (date !== null && destination !== '' && origin === '') {
+        console.log("faile");
+        return flight.attributes.origin.name === origin &&
+        flight.attributes.date_time.includes(date);
+
+      } else if (date !== null && destination === '' && origin !== '') {
+        console.log("faile");
+        return flight.attributes.destination.name === destination &&
+        flight.attributes.date_time.includes(date);
       }
     });
 
