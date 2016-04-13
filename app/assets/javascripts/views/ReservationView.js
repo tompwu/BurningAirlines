@@ -11,8 +11,6 @@ app.ReservationView = Backbone.View.extend({
     var reservationViewTemplate = $('#reservationViewTemplate').html();
 		var reservationViewHTML = _.template( reservationViewTemplate );
     this.$el.html(reservationViewHTML(this.model.toJSON() ));
-<<<<<<< HEAD
-=======
 
 		var flightId = this.model.attributes.flight_id;
 		var origin = _.findWhere(app.flights.models, {id: flightId});
@@ -28,7 +26,7 @@ app.ReservationView = Backbone.View.extend({
 		// var userId = this.model.attributes.user_id
 		// var userName = Users.find_by_id(userId)
 
->>>>>>> f56caf7be97247266d7862e3a7822153f142ddb7
+
 		}
-		
+
   });
