@@ -63,15 +63,16 @@ app.FlightView = Backbone.View.extend({
         // var userID = @current_user.id;
         // if (seat.id === undefined){
         if ($(".seat").hasClass("selected") === false){
-  
+
           return;
         } else {
           var reservation = new app.Reservation({user_id: app.current_user.id, seat: seat, flight_id: flight_id });
-          reservation.save();
-        // app.router.navigate('reservations/' + this.model.get("id"), true);
+          reservation.save().done(function() {
+            app.router.navigate('reservations/' + reservation.id, true);
+          });
         }
       } else {
-        alert("Please select a seat.")
+        alert("Please select a seat.");
       }
     }
 
