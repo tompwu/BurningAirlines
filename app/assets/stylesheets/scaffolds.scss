@@ -84,4 +84,22 @@ div {
 
 .navbar-inverse {
   background-color: rgba(47, 162, 218, 0.8);
+  border-color: rgba(47, 162, 218, 0.8);
+}
+
+.panel {
+    margin: 0 auto;
+    width: 400px;
+    margin-bottom: 20px;
+    background-color: rgba(47, 162, 218, 0.8);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel-default > .panel-heading {
+    color: #333333;
+    background-color: rgba(47, 162, 218, 0.8);
+    border-color: rgba(47, 162, 218, 0.8);
 }
