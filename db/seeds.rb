@@ -1,9 +1,9 @@
 # I reckon we need a flight between sydney & london, sydney & los angeles every day for a month
 
 Plane.destroy_all
-p1 = Plane.create name: 'plane1', rows: 6, columns: 8
-p2 = Plane.create name: 'plane2', rows: 4, columns: 6
-p3 = Plane.create name: 'plane3', rows: 4, columns: 10
+p1 = Plane.create name: 'plane1', rows: 18, columns: 6
+p2 = Plane.create name: 'plane2', rows: 14, columns: 4
+p3 = Plane.create name: 'plane3', rows: 20, columns: 8
 
 Airport.destroy_all
 a1 = Airport.create name: 'Sydney'
