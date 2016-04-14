@@ -39,6 +39,7 @@
               <li><%= link_to 'Add Flight', new_flight_path %></li>
           <% end %>
         </ul>
+        <% end %>
 
         <ul class="nav navbar-nav navbar-right">
           <% if @current_user.present? %>
@@ -59,8 +60,6 @@
     <% end %>
 
 <%= yield %>
-
-
 
 </body>
 </html>
