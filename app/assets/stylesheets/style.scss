@@ -32,6 +32,16 @@ li:hover{
     margin: 0 auto;
 }
 
+.displaylist {
+  display: inline-block;
+  min-width: 130px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.flight-ul {
+  width: 100%;
+}
 
 
 .seat
@@ -43,6 +53,8 @@ li:hover{
     cursor: pointer;
     border: 1px solid white;
     line-height: 50px;
+    border-radius: 5px;
+    margin: 5px;
 }
 .seat:hover
 {
