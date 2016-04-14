@@ -1,3 +1,5 @@
+
+
 #div
 {
     width: 960px;
@@ -11,6 +13,14 @@ body
     background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
     background-size: cover;
 
+}
+
+.logo {
+  height: 42px;
+  width: 42px;
+  position: relative;
+  top: 10px;
+  left: -10px;
 }
 
 li
@@ -113,6 +123,10 @@ li:hover{
     text-align: center;
     border-radius: 50px;
     border: 5px solid rgba(210, 48, 48, 0.9);
+}
+
+.list-heading {
+  font-weight: bold;
 }
 
 #datefield {
