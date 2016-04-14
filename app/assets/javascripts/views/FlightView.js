@@ -26,7 +26,7 @@ app.FlightView = Backbone.View.extend({
         var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'];
         for (var x = 1; x <= rows; x++) {
             for (var y = 1; y <= columns; y++) {
-                  var $seat = $('<div class="seat"></div>');
+                  var $seat = $('<div class="seat unselected"></div>');
                   $seat.addClass('row' + x).addClass('column' + letters[y-1]).attr('id','seat' + x + letters[y-1] );
                   $seat.text(x + letters[y-1]);
                   $('#seats').append($seat);
@@ -44,6 +44,7 @@ app.FlightView = Backbone.View.extend({
               var flight = reservationsThisFlight[j] ;
               var seat = flight.seat;
               var user = _.findWhere(app.users.models, {id: flight.user_id });
+              $('#' + seat).removeClass('unselected');
               $('#' + seat).addClass('reserved');
               $('#' + seat).text(user.attributes.name);
         }
@@ -56,9 +57,11 @@ app.FlightView = Backbone.View.extend({
           return;
         }
         $('.seat').removeClass('selected');
+
       //   // if ($(this).css("background-color", "blue")){
       //   //   alert("This seat has already been taken. Please choose an available seat.")
       //   // } else {
+        $(e.currentTarget).removeClass('unselected');
         $(e.currentTarget).addClass('selected');
       //   // }
       // });
