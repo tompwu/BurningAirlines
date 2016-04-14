@@ -20,25 +20,11 @@
         <ul class="nav navbar-nav navbar-left">
           <li><%= link_to "Home", root_path %></li>
           <li> <%= link_to "FAQ", "faq" %></li>
-        </ul>
-        </div>
-        <ul class="nav navbar-nav navbar-middle"></ul>
-        <% if @current_user.present? %>
-            <li><%= link_to "Edit profile", edit_user_path(@current_user) %></li>
-            <li><%= link_to "Logout #{ @current_user.email}", login_path, :method => :delete %></li>
-            <% if @current_user.admin.present? %>
-                <br>
-                <li><%= link_to 'Add Plane', new_plane_path %></li>
-                <li><%= link_to 'Add Flight', new_flight_path %></li>
-            <% end %>
-        <% else %>
-          <% if @current_user.present? && @current_user.admin.present?%>
+          <% if @current_user.present? && @current_user.admin.present? %>
               <li><%= link_to 'Add Plane', new_plane_path %></li>
               <li><%= link_to 'Add Flight', new_flight_path %></li>
           <% end %>
         </ul>
-        <% end %>
-
         <ul class="nav navbar-nav navbar-right">
           <% if @current_user.present? %>
               <li><%= link_to "Edit profile", edit_user_path(@current_user) %></li>
@@ -46,8 +32,8 @@
           <% else %>
           <li><span class="signup-li glyphicon glyphicon-user">   <%= link_to "Sign up", 'users/new' %></span></li>
           <li><span class="signup-li glyphicon glyphicon-log-in">   <%= link_to "Login", login_path %></span></li>
+          <% end %>
         </ul>
-        <% end %>
 
     </nav>
 
