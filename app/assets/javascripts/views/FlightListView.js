@@ -12,6 +12,10 @@ app.FlightListView = Backbone.View.extend({
     var date = (dateChange.substr(0,10) + " " + dateChange.substr(11,5));
     var plane_id = this.model.attributes.plane_id;
     var flight_id = this.model.id;
+
+    // this.$el.empty();
+    // this.$el.remove();
+
     this.$el.prepend("<ul class='flight-ul flight-list-data' id='flight-" + flight_id + "'><li class='displaylist'>" + origin + "</li><li class='displaylist'>" + destination + "</li><li class='displaylist'>" + date + "</li><li class='displaylist' id='seat-avail-" + flight_id + "'></li></ul>");
     // this.$el.text(origin + "          " + destination + "          " + date + "          ");
     // this.$el.append('<span id="seat-avail-' + flight_id + '"></span>');
