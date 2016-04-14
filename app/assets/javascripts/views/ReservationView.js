@@ -13,12 +13,12 @@ app.ReservationView = Backbone.View.extend({
 		var reservationViewHTML = _.template( reservationViewTemplate );
     this.$el.html(reservationViewHTML(this.model.toJSON() ));
 
-		var flightId = this.model.attributes.flight_id;
-		var flight = _.findWhere(app.flights.models, {id: flightId});
-		var originName = flight.attributes.origin.name;
-		var destinationName = flight.attributes.destination.name;
-		var dateTime = flight.attributes.date_time;
-    dateTime = (dateTime.substr(0,10) + " " + dateTime.substr(11,5));
+		window.flightId = this.model.attributes.flight_id;
+		window.flight = _.findWhere(app.flights.models, {id: flightId});
+		window.originName = flight.attributes.origin.name;
+		window.destinationName = flight.attributes.destination.name;
+		window.dateTime = flight.attributes.date_time;
+    window.dateTime = (dateTime.substr(0,10) + " " + dateTime.substr(11,5));
 
 		// Flight.find_by_id(flightId).origin.name
 		$("#flight-date").html(dateTime);
@@ -33,17 +33,16 @@ app.ReservationView = Backbone.View.extend({
 
 	confirmBooking: function(e){
 		e.stopImmediatePropagation();
-		app.router.navigate('/', true);
-		// $(window.reservation).attr("confirmed", true);
-				// debugger
+		app.router.navigate('/thankyou', true);
+
 	},
 	cancelBooking: function(event){
 		event.stopPropagation();
 
-		// $(window.reservation).attr("confirmed", false);
+
 		$.ajax('/reservations/' + this.model.get('id'), { method: 'delete' });
 		app.reservations.remove({id: this.model.get('id')});
-		// console.log(window.reservation);
+
 	  app.router.navigate('/', true);
 	}
 
