@@ -12,8 +12,20 @@ app.FlightListView = Backbone.View.extend({
     var date = (dateChange.substr(0,10) + " " + dateChange.substr(11,5));
     var plane_id = this.model.attributes.plane_id;
     var flight_id = this.model.id;
-    this.$el.append("<ul class='flight-ul flight-list-data' id='flight-" + flight_id + "'><li class='displaylist'>" + origin + "</li><li class='displaylist'>" + destination + "</li><li class='displaylist'>" + date + "</li><li class='displaylist' id='seat-avail-" + flight_id + "'></li></ul>");
-    this.$el.appendTo('#flight-list');
+
+    // this.$el.empty();
+    // this.$el.remove();
+
+    this.$el.prepend("<ul class='flight-ul flight-list-data' id='flight-" + flight_id + "'><li class='displaylist'>" + origin + "</li><li class='displaylist'>" + destination + "</li><li class='displaylist'>" + date + "</li><li class='displaylist' id='seat-avail-" + flight_id + "'></li></ul>");
+    // this.$el.text(origin + "          " + destination + "          " + date + "          ");
+    // this.$el.append('<span id="seat-avail-' + flight_id + '"></span>');
+    this.$el.appendTo('#flight-list')
+
+    // app.flights.comparator = function(app.flights.models){
+    //   return app.flights.models.attributes.get("date_time");
+    // };
+    // app.flights.sort();
+
     app.planes.fetch().done(function(){
       app.reservations.fetch().done(function(){
           var numReservations = 0;
