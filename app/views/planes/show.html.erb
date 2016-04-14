@@ -15,5 +15,20 @@
   <%= @plane.columns %>
 </p>
 
+<div id="#seating-layout"></div>
+  <% letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']; %>
+  <% x = 1 %>
+  <% while x <= @plane.rows.to_i  %>
+  <% y = 1 %>
+    <%   while y <= @plane.columns.to_i %>
+            <% letter = letters[y - 1]  %>
+            <div class="seat row<%= x %> column<%= letter %>" id="seat<%= x %><%= letter %>"  ><%= x %><%= letter %></div>
+            <% y += 1 %>
+      <% end %>
+      <br>
+      <% x += 1 %>
+<% end %>
+
+<br>
 <%= link_to 'Edit', edit_plane_path(@plane) %> |
 <%= link_to 'Back', planes_path %>

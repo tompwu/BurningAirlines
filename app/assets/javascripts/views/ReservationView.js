@@ -9,6 +9,7 @@ app.ReservationView = Backbone.View.extend({
 	el: '#main',
 
   render: function() {
+		debugger;
     var reservationViewTemplate = $('#reservationViewTemplate').html();
 		var reservationViewHTML = _.template( reservationViewTemplate );
     this.$el.html(reservationViewHTML(this.model.toJSON() ));
@@ -27,6 +28,7 @@ app.ReservationView = Backbone.View.extend({
 		// var destination = Flight.find_by_id(flightId).destination.name
 		// var userId = this.model.attributes.user_id
 		// var userName = Users.find_by_id(userId)
+
 	},
 
 	confirmBooking: function(e){

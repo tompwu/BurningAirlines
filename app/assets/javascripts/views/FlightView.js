@@ -37,7 +37,7 @@ app.FlightView = Backbone.View.extend({
         var reservationsThisFlight = _.where( currentReservations, {flight_id: flight_id});
         for (var j = 0; j < reservationsThisFlight.length; j++) {
               var seat = reservationsThisFlight[j].seat;
-              var userId = app.current_user.id
+              var userId = app.current_user.id;
               $('#' + seat).addClass('reserved');
               $('#' + seat).text(userId);
         }
