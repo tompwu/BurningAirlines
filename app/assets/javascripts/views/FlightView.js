@@ -73,7 +73,7 @@ app.FlightView = Backbone.View.extend({
 
           return;
         } else {
-          window.reservation = new app.Reservation({user_id: app.current_user.id, seat: seat, flight_id: flight_id });
+          var reservation = new app.Reservation({user_id: app.current_user.id, seat: seat, flight_id: flight_id });
           reservation.save().done(function() {
               app.reservations.add( reservation );
               app.router.navigate('reservations/' + reservation.id, true);

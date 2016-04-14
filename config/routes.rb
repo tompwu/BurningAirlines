@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/users/edit' => 'users#edit', :as => 'edit_user'
 
   get '/airports' => 'airports#index'
+  get '/thankyou' => 'reservations#confirmed'
 
   resources :flights
   resources :reservations
