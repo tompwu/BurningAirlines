@@ -28,31 +28,21 @@ li:hover{
 #seats
 {
 
-    width: 400px;
-    height: 600px;
-
+    width: 600px;
     margin: 0 auto;
 }
 
 
-  #seats {
-    width: 400px;
-    height: 255px;
-    margin: 0 auto;
-}
 
 .seat
 {
     display: inline-block;
 
-
-    width: 30px;
-    height: 30px;
-
-
+    width: 50px;
+    height: 50px;
     cursor: pointer;
-
     border: 1px solid white;
+    line-height: 50px;
 }
 .seat:hover
 {

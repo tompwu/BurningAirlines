@@ -28,6 +28,7 @@ app.FlightView = Backbone.View.extend({
             for (var y = 1; y <= columns; y++) {
                   var $seat = $('<div class="seat"></div>');
                   $seat.addClass('row' + x).addClass('column' + letters[y-1]).attr('id','seat' + x + letters[y-1] );
+                  $seat.text(x + letters[y-1]);
                   $('#seats').append($seat);
             }
             $('#seats').append('<br>');

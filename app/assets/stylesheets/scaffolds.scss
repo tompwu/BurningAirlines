@@ -68,6 +68,7 @@ div {
 
 .navbar-header {
   margin-right: 20px;
+
 }
 
 // li {
@@ -79,4 +80,8 @@ div {
   //   font-size: 12px;
   //   list-style: square;
   // }
+}
+
+.navbar-inverse {
+  background-color: rgba(47, 162, 218, 0.8);
 }

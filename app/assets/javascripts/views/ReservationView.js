@@ -39,6 +39,7 @@ app.ReservationView = Backbone.View.extend({
 	cancelBooking: function(event){
 		event.stopPropagation();
 
+
 		$.ajax('/reservations/' + this.model.get('id'), { method: 'delete' });
 		app.reservations.remove({id: this.model.get('id')});
 
