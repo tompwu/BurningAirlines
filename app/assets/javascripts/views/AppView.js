@@ -10,10 +10,11 @@ app.AppView = Backbone.View.extend({
     var appViewTemplate = $('#appViewTemplate').html();
     this.$el.html(appViewTemplate);
     app.flights.each(function(flight) {
+      console.log(flight);
       var flightListView = new app.FlightListView({
         model: flight
       });
-      flightListView.render();
+          flightListView.render();
     });
   },
 
