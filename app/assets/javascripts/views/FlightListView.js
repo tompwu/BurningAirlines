@@ -30,6 +30,7 @@ app.FlightListView = Backbone.View.extend({
           $('#seat-avail-' + flight_id).text(availableSeats + '/' + numberOfSeats );
       });
     });
+>>>>>>> 9538128270be328aedad1bc5fce116bb6b5854e2
   },
   showFlight: function() {
     app.router.navigate('flights/' + this.model.get("id"), true);
