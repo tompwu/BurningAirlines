@@ -35,13 +35,12 @@ app.ReservationView = Backbone.View.extend({
 		e.stopImmediatePropagation();
 		// debugger
 		$(window.reservation).attr("confirmed", true);
-
 	},
 	cancelBooking: function(event){
 		event.stopPropagation();
-
-		$(window.reservation).attr("confirmed", false);
+		$(window.reservation).class("confirmed", false);
 		$(window.reservation).remove();
+
 	}
 
   });
