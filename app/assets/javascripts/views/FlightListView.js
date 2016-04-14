@@ -15,8 +15,18 @@ app.FlightListView = Backbone.View.extend({
     this.$el.append("<ul class='flight-ul flight-list-data' id='flight-" + flight_id + "'><li class='displaylist'>" + origin + "</li><li class='displaylist'>" + destination + "</li><li class='displaylist'>" + date + "</li><li class='displaylist' id='seat-avail-" + flight_id + "'></li></ul>");
     // this.$el.text(origin + "          " + destination + "          " + date + "          ");
     // this.$el.append('<span id="seat-avail-' + flight_id + '"></span>');
-    this.$el.appendTo('#flight-list');
+    this.$el.appendTo('#flight-list')
+
+    // app.flights.comparator = function(app.flights.models){
+    //   return app.flights.models.attributes.get("date_time");
+    // };
+    // app.flights.sort();
+
     app.planes.fetch().done(function(){
+      for(var j = 0; j < app.flights.models.length; j++){
+        console.log(app.flights.models[j].attributes.date_time);
+      };
+      
       app.reservations.fetch().done(function(){
           var numReservations = 0;
           for (var i = 0; i < app.reservations.models.length; i++) {
