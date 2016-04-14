@@ -17,6 +17,12 @@ body
 li
 {
     list-style: none;
+    line-height: 30px;
+}
+
+li:hover{
+  color: white;
+  cursor: pointer;
 }
 
 #seats
@@ -37,15 +43,26 @@ li
 
     border: 1px solid white;
 }
+.seat:hover
+{
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+}
 
 .selected
 {
     background-color: blue;
 }
 
+.selected:hover
+{
+  background-color: rgb(100, 137, 235);
+
+}
+
 .reserved
 {
-    background-color: red;
+  background-color: red;
     // quick fix for box allign issue below
     // position: relative;
     // top: -14px;
@@ -54,14 +71,15 @@ li
 .reserved:hover
 {
     cursor: not-allowed;
+    background-color: salmon;
+
+
 }
 
 .flight-list-style
 {
-
-    cursor: pointer;
-    background-color: rgba(47, 162, 218, 0.7);
-    width:600px;
+    background-color: rgba(47, 162, 218, 0.8);
+    width:700px;
     margin: 0 auto;
     text-align: left;
     border-radius: 50px;
