@@ -9,12 +9,12 @@ app.AppView = Backbone.View.extend({
   render: function() {
     var appViewTemplate = $('#appViewTemplate').html();
     this.$el.html(appViewTemplate);
-    app.flights.each(function(flight) {
-      var flightListView = new app.FlightListView({
-        model: flight
-      });
-          flightListView.render();
-    });
+    // app.flights.each(function(flight) {
+    //   var flightListView = new app.FlightListView({
+    //     model: flight
+    //   });
+    //       flightListView.render();
+    // });
   },
 
   // The function associated with the search click that
@@ -54,22 +54,14 @@ app.AppView = Backbone.View.extend({
 
     // Removes the previous list of results and renders the new
     // according the the above parameters.
-    $('li').remove();
+    var $headings = $('<ul id="flight-list" class="flight-ul"><li class="displaylist">Origin</li><li class="displaylist">Destination</li><li class="displaylist">Date</li><li class="displaylist">Seats Available</li></ul>');
+    this.$el.find('li').remove();
+    $('.flight-list-style').append($headings);
     for (var i = 0; i < search.length; i++) {
       var searchView = new app.FlightListView({
         model: search[i]
       });
       searchView.render();
     }
-    // var search = app.flights.models.filter(function(flight) {
-    //   return flight.get("origin").name === origin && flight.get("destination").name === destination;
-    // });
-    // for (var i = 0; i < search.length; i++) {
-    //     var searchModel = search[i];
-    //     var flightListView = new app.FlightListView({
-    //       model: searchModel
-    //     });
-    //     flightListView.render();
-    //   }
   }
 });
