@@ -21,8 +21,8 @@ li
 
 #seats
 {
-    width: 200px;
-    height: 400px;
+    width: 400px;
+    height: 600px;
     margin: 0 auto;
 }
 
@@ -30,8 +30,8 @@ li
 {
     display: inline-block;
 
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 
     cursor: pointer;
 
@@ -46,6 +46,9 @@ li
 .reserved
 {
     background-color: red;
+    // quick fix for box allign issue below
+    // position: relative;
+    // top: -14px;
 }
 
 .reserved:hover
