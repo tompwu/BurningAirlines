@@ -33,15 +33,19 @@ app.ReservationView = Backbone.View.extend({
 
 	confirmBooking: function(e){
 		e.stopImmediatePropagation();
-		// debugger
-		$(window.reservation).attr("confirmed", true);
-
+		app.router.navigate('/', true);
+		// $(window.reservation).attr("confirmed", true);
+				// debugger
 	},
 	cancelBooking: function(event){
 		event.stopPropagation();
 
-		$(window.reservation).attr("confirmed", false);
-		$(window.reservation).remove();
+		// $(window.reservation).attr("confirmed", false);
+		debugger;
+		$.ajax('/reservations/' + this.model.get('id'), { method: 'delete' });
+		app.reservations.remove({id: this.model.get('id')});
+		// console.log(window.reservation);
+	  app.router.navigate('/', true);
 	}
 
   });
