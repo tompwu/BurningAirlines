@@ -41,7 +41,6 @@ app.ReservationView = Backbone.View.extend({
 		event.stopPropagation();
 
 		// $(window.reservation).attr("confirmed", false);
-		debugger;
 		$.ajax('/reservations/' + this.model.get('id'), { method: 'delete' });
 		app.reservations.remove({id: this.model.get('id')});
 		// console.log(window.reservation);
