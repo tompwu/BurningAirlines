@@ -27,6 +27,16 @@ app.FlightView = Backbone.View.extend({
         var plane = app.planes.get(id);
         var columns = plane.attributes.columns;
         var rows = plane.attributes.rows;
+        var addAisle = function() {
+          if (columns === '4') {
+              $('.columnB').addClass('aisle-right');
+          }else if (columns === '6') {
+              $('.columnC').addClass('aisle-right');
+          }else if (columns === '8') {
+              $('.columnB').addClass('aisle-right');
+              $('.columnF').addClass('aisle-right');
+          }
+        };
         var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'];
         for (var x = 1; x <= rows; x++) {
             for (var y = 1; y <= columns; y++) {
@@ -35,26 +45,22 @@ app.FlightView = Backbone.View.extend({
                   $seat.text(x + letters[y-1]);
                   $('#seats').append($seat);
             }
+            addAisle();
             $('#seats').append('<br>');
             if (x === 7 || x == 14 || x == rows) {
                 var leftLeftPos = $('#seat'+ x + 'A').offset().left;
                 var topPos = $('#seat'+ x + 'A').offset().top;
                 var rightLeftPos = $('#seat'+ x + letters[columns - 1] ).offset().left;
-                $('#seats').append('<img id="exitLeft' + x + '" class="exit" src="/assets/exit.gif">');
-                $('#exitLeft' + x).offset({top: (topPos + 55), left: leftLeftPos + 50});
-                $('#seats').append('<img id="exitRight' + x + '" class="exit" src="/assets/exit.gif">');
-                $('#exitRight' + x).offset({top: (topPos + 55), left: (rightLeftPos)});
+                var exitSource = 'http://www.firstsafetysigns.co.uk/WebRoot/BT2/Shops/Store2_002E_Shop1848/45F5/4CAA/50BE/B6A6/CDCB/AC10/3D2A/0034/300mmx150mm-exit-left.gif';
+
+                $('#seats').append('<img id="exitLeft' + x + '" class="exit" src="' + exitSource + '">');
+                $('#exitLeft' + x).offset({top: (topPos + 55), left: (leftLeftPos + 100) });
+                $('#seats').append('<img id="exitRight' + x + '" class="exit" src="' + exitSource + '">');
+                $('#exitRight' + x).offset({top: (topPos + 55), left: (rightLeftPos - 50) });
                 $('#seats').append('<br>');
             }
       }
-        if (columns === '4') {
-            $('.columnB').addClass('aisle-right');
-        }else if (columns === '6') {
-            $('.columnC').addClass('aisle-right');
-        }else if (columns === '8') {
-            $('.columnB').addClass('aisle-right');
-            $('.columnF').addClass('aisle-right');
-        }
+
     },
     getReservations: function(flight_id) {
         var currentReservations = [];
