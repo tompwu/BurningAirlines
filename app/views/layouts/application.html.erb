@@ -8,20 +8,34 @@
 </head>
 <body>
 
+
+
+
   <nav class="navbar navbar-inverse">
-        <%= link_to"Home", root_path %>
+      <div class="navbar-header">
+        <a class="navbar-brand">Burning Airlines</a>
+      </div>
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to "Home", root_path %></li>
+          <li>  Flights Edit this </li>
+          <li> FAQ With lorem </li>
+        </ul>
+        </div>
         <% if @current_user.present? %>
-            <%= link_to "Edit profile", edit_user_path(@current_user) %>
-            <%= link_to "Logout #{ @current_user.email}", login_path, :method => :delete %>
+            <li><%= link_to "Edit profile", edit_user_path(@current_user) %></li>
+            <li><%= link_to "Logout #{ @current_user.email}", login_path, :method => :delete %></li>
             <% if @current_user.admin.present? %>
                 <br>
-                <%= link_to 'Add Plane', new_plane_path %>
-                <%= link_to 'Add Flight', new_flight_path %>
+                <li><%= link_to 'Add Plane', new_plane_path %></li>
+                <li><%= link_to 'Add Flight', new_flight_path %></li>
             <% end %>
         <% else %>
-            <%= link_to "Signup", 'users/new' %>
-            <%= link_to "Login", login_path %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><span class="glyphicon glyphicon-user"></span> <%= link_to "Sign up", 'users/new' %></li>
+          <li><span class="glyphicon glyphicon-log-in"></span> <%= link_to "Login", login_path %></li>
+        </ul>
         <% end %>
+
     </nav>
 
     <% if flash[:error].present? %>
