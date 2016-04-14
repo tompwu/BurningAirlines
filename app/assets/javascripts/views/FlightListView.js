@@ -27,7 +27,6 @@ app.FlightListView = Backbone.View.extend({
           var thisPlane = _.findWhere(app.planes.models, {id:plane_id });
           var numberOfSeats = parseInt(thisPlane.attributes.columns) * parseInt(thisPlane.attributes.rows);
           var availableSeats = numberOfSeats - numReservations;
-          console.log(availableSeats, numReservations, numberOfSeats);
           $('#seat-avail-' + flight_id).text(availableSeats + '/' + numberOfSeats );
       });
     });
