@@ -148,7 +148,8 @@ a {
 }
 
 footer {
-  position:absolute;
-  bottom:0;
+  position: relative;
+  top: -100%;
   width:100%;
+  padding-top: 25%;
 }
