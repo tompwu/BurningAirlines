@@ -13,8 +13,6 @@ app.FlightListView = Backbone.View.extend({
     var plane_id = this.model.attributes.plane_id;
     var flight_id = this.model.id;
     this.$el.append("<ul class='flight-ul flight-list-data' id='flight-" + flight_id + "'><li class='displaylist'>" + origin + "</li><li class='displaylist'>" + destination + "</li><li class='displaylist'>" + date + "</li><li class='displaylist' id='seat-avail-" + flight_id + "'></li></ul>");
-    // this.$el.text(origin + "          " + destination + "          " + date + "          ");
-    // this.$el.append('<span id="seat-avail-' + flight_id + '"></span>');
     this.$el.appendTo('#flight-list');
     app.planes.fetch().done(function(){
       app.reservations.fetch().done(function(){

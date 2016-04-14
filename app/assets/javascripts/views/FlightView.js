@@ -1,4 +1,5 @@
 var app = app || {};
+var checkForReservation;
 
 app.FlightView = Backbone.View.extend({
 
@@ -8,6 +9,9 @@ app.FlightView = Backbone.View.extend({
   },
     el: '#main',
     render: function() {
+      checkForReservation = window.setInterval( function() {
+              app.reservations.fetch();
+          }, 50);
       var flightViewTemplate = $('#flightViewTemplate').html();
       var flightViewHTML = _.template( flightViewTemplate );
       this.$el.html( flightViewHTML(this.model.toJSON() ));
@@ -32,6 +36,16 @@ app.FlightView = Backbone.View.extend({
                   $('#seats').append($seat);
             }
             $('#seats').append('<br>');
+            if (x === 7 || x == 14 || x == rows) {
+                var leftLeftPos = $('#seat'+ x + 'A').offset().left;
+                var topPos = $('#seat'+ x + 'A').offset().top;
+                var rightLeftPos = $('#seat'+ x + letters[columns - 1] ).offset().left;
+                $('#seats').append('<img id="exitLeft' + x + '" class="exit" src="/assets/exit.gif">');
+                $('#exitLeft' + x).offset({top: (topPos + 55), left: leftLeftPos + 50});
+                $('#seats').append('<img id="exitRight' + x + '" class="exit" src="/assets/exit.gif">');
+                $('#exitRight' + x).offset({top: (topPos + 55), left: (rightLeftPos)});
+                $('#seats').append('<br>');
+            }
       }
         if (columns === '4') {
             $('.columnB').addClass('aisle-right');
@@ -59,43 +73,48 @@ app.FlightView = Backbone.View.extend({
     },
     selectSeatOnClick: function(e){
       e.stopImmediatePropagation();
-      // $("#seats").children().on("click", function(){
+      $('.seat').not('.reserved').addClass('unselected');
         if ($(e.currentTarget).hasClass('reserved')) {
-          alert ("That seat is unavailable. Please choose another seat.");
+          alert ("This seat has been booked. Please choose another seat.");
           return;
         }
-        $('.seat').removeClass('selected');
 
-      //   // if ($(this).css("background-color", "blue")){
-      //   //   alert("This seat has already been taken. Please choose an available seat.")
-      //   // } else {
+        if ( app.reservations.findWhere({seat: e.currentTarget.id, flight_id: this.model.attributes.id })) {
+            alert ("This seat is currently unavailable. Please choose another seat.");
+            this.getReservations(this.model.attributes.id);
+            return;
+        }
+        $('.seat').removeClass('selected');
         $(e.currentTarget).removeClass('unselected');
         $(e.currentTarget).addClass('selected');
-      //   // }
-      // });
+
+        var seat = $(".selected").eq(0).attr("id");
+        var flight_id = this.model.attributes.id;
+        var reservations = app.reservations.where({user_id: app.current_user.id, confirmed: false});
+        _.each(reservations, function (reservation) {
+            reservation.destroy();
+        });
+        app.reservations.remove(reservations);
+        var reservation = new app.Reservation({user_id: app.current_user.id, seat: seat, flight_id: flight_id });
+        reservation.save().done(function() {
+            app.reservations.add( reservation );
+
+        });
+
     },
     confirmSeat: function() {
       if ($(".selected").length > 0) {
-        var seat = $(".selected").eq(0).attr("id");
-        var flight_id = this.model.attributes.id;
+          clearInterval(checkForReservation);
+          var flight_id = this.model.attributes.id;
+          var seat = $(".selected").eq(0).attr("id");
+          var reservation = app.reservations.where({user_id: app.current_user.id, seat: seat, flight_id: flight_id });
+          app.router.navigate('reservations/' + reservation[0].id, true);
 
         // var userID = @current_user.id;
 
-        if ($(".seat").hasClass("selected") === false){
-
-          return;
-        } else {
-          var reservation = new app.Reservation({user_id: app.current_user.id, seat: seat, flight_id: flight_id });
-          reservation.save().done(function() {
-              app.reservations.add( reservation );
-              app.router.navigate('reservations/' + reservation.id, true);
-          });
-        }
-
       } else {
-        alert("Please select a seat.");
+          alert("Please select a seat.");
+          return;
       }
-
-
-    }
-  });
+  }
+});
