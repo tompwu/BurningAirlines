@@ -8,22 +8,18 @@
 </head>
 <body>
 
-
-
-
   <nav class="navbar navbar-inverse">
       <div class="navbar-header">
         <a class="navbar-brand">
           <img src="/assets/planeicon.png" alt="icon" height="42" width="42">
-
         </a>
       </div>
         <ul class="nav navbar-nav navbar-left">
           <li><%= link_to "Home", root_path %></li>
-          <li>  Flights Edit this </li>
-          <li> FAQ With lorem </li>
+          <li> <%= link_to "FAQ", "faq" %></li>
         </ul>
         </div>
+        <ul class="nav navbar-nav navbar-middle"></ul>
         <% if @current_user.present? %>
             <li><%= link_to "Edit profile", edit_user_path(@current_user) %></li>
             <li><%= link_to "Logout #{ @current_user.email}", login_path, :method => :delete %></li>

@@ -5,7 +5,8 @@ app.AppRouter = Backbone.Router.extend({
       '': 'index',
       'flights/:id': 'showFlight',
       'reservations/:id': 'showReservation',
-      'thankyou': 'confirmed'
+      'thankyou': 'confirmed',
+      'faq': "faq"
     },
     index: function() {
       var appView = new app.AppView();
@@ -29,6 +30,10 @@ app.AppRouter = Backbone.Router.extend({
       var reservation = app.reservations.get(app.reservation_id);
       var confirmedView = new app.ConfirmedView({ model: reservation });
       confirmedView.render();
+    },
+
+    faq: function(){
+      faqView.render();
     }
 
 
