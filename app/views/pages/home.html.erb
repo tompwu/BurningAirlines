@@ -9,7 +9,7 @@
 
 <script type="text/template" id='appViewTemplate'>
       <!-- <h1>Burning Airlines</h1> -->
-      <img src="/assets/text.gif" alt="flaming">
+      <%= image_tag "text.gif" %>
       <div class="flight-list-style" >
 
       <!-- we need a search page where user can select origin, destination and date -->
@@ -70,6 +70,7 @@
 </script>
 
 <script type="text/template" id='confirmedViewTemplate'>
+  <%= image_tag "text.gif" %>
   <div class="flight-list-style" >
     <h2>Thank You For Choosing To Fly With Burning Airlines</h2>
     <p>Seat: <%%= seat %></p>
