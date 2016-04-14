@@ -48,8 +48,11 @@ app.AppView = Backbone.View.extend({
 
     // Removes the previous list of results and renders the new
     // according the the above parameters.
-    var $headings = $('<ul id="flight-list" class="flight-ul"><li class="displaylist">Origin</li><li class="displaylist">Destination</li><li class="displaylist">Date</li><li class="displaylist">Seats Available</li></ul>');
+
     this.$el.find('li').remove();
+    this.$el.find('ul').remove();
+
+    var $headings = $('<ul id="flight-list" class="flight-ul"><li class="displaylist">Origin</li><li class="displaylist">Destination</li><li class="displaylist">Date</li><li class="displaylist">Seats Available</li></ul>');
     $('.flight-list-style').append($headings);
     for (var i = 0; i < search.length; i++) {
       var searchView = new app.FlightListView({
