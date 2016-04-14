@@ -60,21 +60,8 @@ div {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
-}
 
-.errorMsg {
-  color: white;
-}
-
-p a {
-  color: white;
-}
-
-a:visited {
-    color: white;
-}
-
-h2 {
+  h2 {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
@@ -83,7 +70,7 @@ h2 {
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
-}
+  }
 
 .navbar-header {
   margin-right: 20px;
@@ -99,7 +86,7 @@ h2 {
   //   font-size: 12px;
   //   list-style: square;
   // }
-
+}
 
 nav ul {
   height: 100%;
@@ -130,7 +117,11 @@ nav ul {
     text-decoration: none;
     background-color: none;
     color: white;
-  background: none;
+    background: none;
+}
+
+.navbar span:hover a {
+  color: white;
 }
 
 .navbar-nav > li > a {
@@ -141,6 +132,9 @@ nav ul {
 .navbar-nav > li:hover {
   color: #fff;
   background-color: rgba(47, 162, 218, 0.8);
+  -webkit-box-shadow: -1px 0px 30px 6px rgba(0,0,0,0.20);
+  -moz-box-shadow: -1px 0px 30px 6px rgba(0,0,0,0.20);
+  box-shadow: -1px 0px 30px 6px rgba(0,0,0,0.20);
 }
 
 
