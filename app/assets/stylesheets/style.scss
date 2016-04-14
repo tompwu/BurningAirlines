@@ -8,7 +8,7 @@ body
 {
     text-align: center;
 
-    color: white;
+    color: grey;
     background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
     background-size: cover;
 
@@ -89,17 +89,17 @@ li:hover{
 {
     cursor: not-allowed;
     background-color: salmon;
-
-
 }
 
 #confirm-seat-btn {
   margin-bottom: 50px;
+  color: rgba(210, 48, 48, 0.9);
 }
 
 #cancel-reservation{
     margin-bottom: 50px;
     margin-top: 50px;
+    color: rgba(210, 48, 48, 0.9);
 }
 
 .flight-list-style
