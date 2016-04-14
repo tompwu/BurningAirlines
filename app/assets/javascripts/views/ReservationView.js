@@ -36,8 +36,9 @@ app.ReservationView = Backbone.View.extend({
 		e.stopImmediatePropagation();
 
 		var reservation = app.reservations.find({flight_id: this.model.attributes.flight_id, seat: this.model.attributes.seat});
-		reservation.attributes.confirmed = true;
+		reservation.set("confirmed", true);
 		reservation.save();
+		debugger;
 
 		app.router.navigate('/thankyou', true);
 
