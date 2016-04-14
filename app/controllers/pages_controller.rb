@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authorise
+  before_action :authorise, only: [:home] 
 
   def home
   end
