@@ -10,6 +10,8 @@ body
 
     color: white;
     background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
+    background-size: cover;
+
 }
 
 li
@@ -53,7 +55,14 @@ li
 
 .flight-list-style
 {
+
     cursor: pointer;
+    background-color: rgba(47, 162, 218, 0.7);
+    width:600px;
+    margin: 0 auto;
+    text-align: left;
+    border-radius: 50px;
+    border: 5px solid rgba(210, 48, 48, 0.9);
     // add hover for individuals later maybe following below
     // color: #000;
     //
@@ -65,10 +74,4 @@ li
     //   color: #fff;
     //   background-color: #000;
     // }
-}
-body
-{
-    text-align: center;
-
-    background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
 }

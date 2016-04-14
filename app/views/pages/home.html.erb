@@ -34,9 +34,7 @@
       <input type="date" id="datefield">
 
       <button id="searchSubmit">Search</button>
-
       </form>
-
 
       <ul id="flight-list" class="flight-list-style"></ul>
 
@@ -47,7 +45,7 @@
       <img src="/assets/text.gif" alt="flaming">
       <p>Origin: <%%= origin.name %></p>
       <p>Destination: <%%= destination.name %></p>
-      <p>Date: <%%= date_time %></p>
+      <p>Date: <span id='flight-date'></span></p>
       <p></p>
       <p>Please select a seat.</p>
 
