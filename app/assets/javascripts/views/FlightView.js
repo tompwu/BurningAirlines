@@ -14,6 +14,10 @@ app.FlightView = Backbone.View.extend({
       plane_id = this.model.toJSON().plane_id;
       this.createSeats(plane_id);
       this.getReservations(this.model.attributes.id);
+      var dateChange = this.model.get('date_time');
+      var date = (dateChange.substr(0,10) + " " + dateChange.substr(11,5));
+      $("#flight-date").html(date);
+
     },
     createSeats: function(id) {
         var plane = app.planes.get(id);
@@ -36,10 +40,11 @@ app.FlightView = Backbone.View.extend({
         }
         var reservationsThisFlight = _.where( currentReservations, {flight_id: flight_id});
         for (var j = 0; j < reservationsThisFlight.length; j++) {
-              var seat = reservationsThisFlight[j].seat;
-              var userId = app.current_user.id
+              var flight = reservationsThisFlight[j] ;
+              var seat = flight.seat;
+              var user = _.findWhere(app.users.models, {id: flight.user_id });
               $('#' + seat).addClass('reserved');
-              $('#' + seat).text(userId);
+              $('#' + seat).text(user.attributes.name);
         }
     },
     selectSeatOnClick: function(e){

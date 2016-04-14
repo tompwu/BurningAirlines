@@ -10,55 +10,55 @@
 <script type="text/template" id='appViewTemplate'>
       <!-- <h1>Burning Airlines</h1> -->
       <img src="/assets/text.gif" alt="flaming">
-
+      <div class="flight-list-style" >
 
       <!-- we need a search page where user can select origin, destination and date -->
       <form action="" id="searchForm">
       <label for="originfield">Origin:</label>
       <select id="originfield">
-       <option value="" selected disabled>select</option>
-        <option>London</option>
-        <option>Los Angeles</option>
-        <option>Sydney</option>
+       <option value=0 selected disabled>select</option>
+      <% Airport.all.each do |airport| %>
+            <option value="<%= airport.id %>"><%= airport.name %></option>
+      <% end %>
       </select>
 
       <label for="destinationfield">Destination:</label>
       <select id="destinationfield">
-       <option value="" selected disabled>select</option>
-        <option>London</option>
-        <option>Los Angeles</option>
-        <option>Sydney</option>
+       <option value=0 selected disabled>select</option>
+       <% Airport.all.each do |airport| %>
+             <option value="<%= airport.id %>"><%= airport.name %></option>
+       <% end %>
       </select>
 
       <label for="datefield">Date:</label>
       <input type="date" id="datefield">
 
       <button id="searchSubmit">Search</button>
-
       </form>
 
-
-      <ul id="flight-list" class="flight-list-style"></ul>
-
+      <ul id="flight-list"></ul>
+    </div>
 </script>
 
 <script type="text/template" id='flightViewTemplate'>
       <!-- <h1>Burning Airlines 2</h1> -->
       <img src="/assets/text.gif" alt="flaming">
+      <div class="flight-list-style" >
       <p>Origin: <%%= origin.name %></p>
       <p>Destination: <%%= destination.name %></p>
-      <p>Date: <%%= date_time %></p>
+      <p>Date: <span id='flight-date'></span></p>
       <p></p>
       <p>Please select a seat.</p>
 
       <div id="seats"></div>
       <button id='confirm-seat-btn'>Proceed</button>
-
+  </div>
 </script>
 
 <script type="text/template" id='reservationViewTemplate'>
       <!-- <h1>Burning Airlines 3</h1> -->
       <img src="/assets/text.gif" alt="flaming">
+      <div class="flight-list-style" >
 
       <p>Seat: <%%= seat %></p>
       <p>Date: <span id="flight-date"></p>
@@ -68,8 +68,8 @@
       <p>Passenger's Email: <%%= app.current_user.email %></p>
       <button id="cancel-reservation">Cancel Booking</button>
       <button id="confirm-reservation">Confirm Booking</button>
-
-
-
+      </div>
 </script>
+
+
 </div>

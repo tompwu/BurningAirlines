@@ -10,17 +10,34 @@ body
 
     color: white;
     background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
+    background-size: cover;
+
 }
 
 li
 {
     list-style: none;
+    line-height: 30px;
+}
+
+li:hover{
+  color: white;
+  cursor: pointer;
 }
 
 #seats
 {
-    width: 200px;
-    height: 400px;
+
+    width: 400px;
+    height: 600px;
+
+    margin: 0 auto;
+}
+
+
+  #seats {
+    width: 400px;
+    height: 255px;
     margin: 0 auto;
 }
 
@@ -28,12 +45,19 @@ li
 {
     display: inline-block;
 
-    width: 20px;
-    height: 20px;
+
+    width: 30px;
+    height: 30px;
+
 
     cursor: pointer;
 
     border: 1px solid white;
+}
+.seat:hover
+{
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
 }
 
 .selected
@@ -41,34 +65,43 @@ li
     background-color: blue;
 }
 
+.selected:hover
+{
+  background-color: rgb(100, 137, 235);
+
+}
+
 .reserved
 {
-    background-color: red;
+  background-color: red;
+    // quick fix for box allign issue below
+    // position: relative;
+    // top: -14px;
 }
 
 .reserved:hover
 {
     cursor: not-allowed;
+    background-color: salmon;
+
+
+}
+
+#confirm-seat-btn {
+  margin-bottom: 50px;
+}
+
+#cancel-reservation{
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .flight-list-style
 {
-    cursor: pointer;
-    // add hover for individuals later maybe following below
-    // color: #000;
-    //
-    // &:visited {
-    //   color: #666;
-    // }
-    //
-    // &:hover {
-    //   color: #fff;
-    //   background-color: #000;
-    // }
-}
-body
-{
+    background-color: rgba(47, 162, 218, 0.8);
+    width:700px;
+    margin: 0 auto;
     text-align: center;
-
-    background-image: url(http://thisistrouble.com/wp-content/uploads/2016/01/fire.jpg);
+    border-radius: 50px;
+    border: 5px solid rgba(210, 48, 48, 0.9);
 }

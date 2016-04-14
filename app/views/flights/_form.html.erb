@@ -16,12 +16,12 @@
     <%= f.number_field :plane_id %>
   </div>
   <div class="field">
-    <%= f.label :origin %><br>
-    <%= f.text_area :origin %>
+    <%= f.label :origin_id %><br>
+    <%= f.select :origin_id, Airport.pluck(:name, :id) %>
   </div>
   <div class="field">
-    <%= f.label :destination %><br>
-    <%= f.text_area :destination %>
+    <%= f.label :destination_id %><br>
+    <%= f.select :destination_id, Airport.pluck(:name, :id) %>
   </div>
   <div class="field">
     <%= f.label :date_time %><br>
