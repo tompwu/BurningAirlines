@@ -17,10 +17,6 @@ $(document).ready(function() {
     app.reservations = new app.Reservations();
     app.reservations.fetch();
 
-    window.setInterval( function() {
-        app.reservations.fetch();
-    }, 50);
-
     app.router = new app.AppRouter();
     Backbone.history.start();
 
