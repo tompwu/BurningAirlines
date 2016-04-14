@@ -11,6 +11,9 @@ $(document).ready(function() {
     app.airports = new app.Airports();
     app.airports.fetch();
 
+    // app.users = new app.Users();
+    // app.users.fetch();
+
     app.reservations = new app.Reservations();
     app.reservations.fetch();
 

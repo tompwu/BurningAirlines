@@ -16,18 +16,18 @@
       <form action="" id="searchForm">
       <label for="originfield">Origin:</label>
       <select id="originfield">
-       <option value="" selected disabled>select</option>
-        <option>London</option>
-        <option>Los Angeles</option>
-        <option>Sydney</option>
+       <option value=0 selected disabled>select</option>
+      <% Airport.all.each do |airport| %>
+            <option value="<%= airport.id %>"><%= airport.name %></option>
+      <% end %>
       </select>
 
       <label for="destinationfield">Destination:</label>
       <select id="destinationfield">
-       <option value="" selected disabled>select</option>
-        <option>London</option>
-        <option>Los Angeles</option>
-        <option>Sydney</option>
+       <option value=0 selected disabled>select</option>
+       <% Airport.all.each do |airport| %>
+             <option value="<%= airport.id %>"><%= airport.name %></option>
+       <% end %>
       </select>
 
       <label for="datefield">Date:</label>
