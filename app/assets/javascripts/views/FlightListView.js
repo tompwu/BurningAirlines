@@ -27,10 +27,6 @@ app.FlightListView = Backbone.View.extend({
     // app.flights.sort();
 
     app.planes.fetch().done(function(){
-      for(var j = 0; j < app.flights.models.length; j++){
-        console.log(app.flights.models[j].attributes.date_time);
-      };
-
       app.reservations.fetch().done(function(){
           var numReservations = 0;
           for (var i = 0; i < app.reservations.models.length; i++) {

@@ -9,12 +9,6 @@ app.AppView = Backbone.View.extend({
   render: function() {
     var appViewTemplate = $('#appViewTemplate').html();
     this.$el.html(appViewTemplate);
-    // app.flights.each(function(flight) {
-    //   var flightListView = new app.FlightListView({
-    //     model: flight
-    //   });
-    //       flightListView.render();
-    // });
   },
 
   // The function associated with the search click that
