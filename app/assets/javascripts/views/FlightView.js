@@ -33,6 +33,14 @@ app.FlightView = Backbone.View.extend({
             }
             $('#seats').append('<br>');
       }
+        if (columns === '4') {
+            $('.columnB').addClass('aisle-right');
+        }else if (columns === '6') {
+            $('.columnC').addClass('aisle-right');
+        }else if (columns === '8') {
+            $('.columnB').addClass('aisle-right');
+            $('.columnF').addClass('aisle-right');
+        }
     },
     getReservations: function(flight_id) {
         var currentReservations = [];
