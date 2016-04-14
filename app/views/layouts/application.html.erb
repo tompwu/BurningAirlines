@@ -19,7 +19,7 @@
       </div>
         <ul class="nav navbar-nav navbar-left">
           <li><%= link_to "Home", root_path %></li>
-          <li> <%= link_to "FAQ", "faq" %></li>
+          <li> <%= link_to "FAQ", faq_path %></li>
           <% if @current_user.present? && @current_user.admin.present? %>
               <li><%= link_to 'Add Plane', new_plane_path %></li>
               <li><%= link_to 'Add Flight', new_flight_path %></li>
