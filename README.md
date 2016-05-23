@@ -7,7 +7,7 @@ https://burningheirlines.herokuapp.com/
 * Ruby 2.3.0
 * Backbone.js
 * Underscore.js
-* Jquery
+* jQuery
 * Ajax
 * Heroku
 * PostgreSQL
@@ -20,7 +20,7 @@ https://burningheirlines.herokuapp.com/
 * Bootstrap-sass 3.3.6
 
 ## Deployed to:
-  Heroku
+* Heroku
 
 ## Models:
 
